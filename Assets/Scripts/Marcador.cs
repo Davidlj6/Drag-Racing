@@ -3,37 +3,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Marcador : MonoBehaviour {
+public class Marcador : MonoBehaviour
+{
 
     private const float MAX_SPEED_ANGLE = 15;
     private const float ZERO_SPEED_ANGLE = 154;
 
-    private Transform needleTransform;
+    public Transform needleTransform;
 
     private float speedMax;
+    private float speedMin;
     private float speed;
+
+    // Getter
+    public Transform getNedle()
+    {
+        return needleTransform;
+    }
+
+    // Setter
+    public void setNedle(Transform needle)
+    {
+        this.needleTransform = needle;
+    }
 
     private void Awake()
     {
         needleTransform = transform.Find("needle");
 
         speed = 0f;
-        speedMax = 200f;
+        speedMax = 60f;
     }
- 
-    private void Update() {
+
+    public void Update()
+    {
         HandlePlayerInput();
-        
+
         //speed += 30f * Time.deltaTime;
         if (speed > speedMax) speed = speedMax;
-        
+        if (speed < speedMin) speed = speedMin;
+
         needleTransform.eulerAngles = new Vector3(0, 0, GetSpeedRotation());
-        
+
     }
 
     private void HandlePlayerInput()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             float acceleration = 100f;
             speed += acceleration * Time.deltaTime;
@@ -45,7 +61,7 @@ public class Marcador : MonoBehaviour {
         }
     }
 
-    private float GetSpeedRotation()
+    public float GetSpeedRotation()
     {
         float totalAngleSize = ZERO_SPEED_ANGLE - MAX_SPEED_ANGLE;
 

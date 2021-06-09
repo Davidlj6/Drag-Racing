@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovimientoCoche2 : MonoBehaviour {
+public class MetaMovimientoCoches : MonoBehaviour
+{
 
     Rigidbody2D rb2D;
     void Start()
@@ -10,10 +11,8 @@ public class MovimientoCoche2 : MonoBehaviour {
         rb2D = GetComponent<Rigidbody2D>();
     }
 
-    void Update() 
+    void Update()
     {
-
-        rb2D.velocity = new Vector2(50f, rb2D.velocity.y);
-           
+        rb2D.velocity = new Vector2(800f, rb2D.velocity.y);
     }
 }

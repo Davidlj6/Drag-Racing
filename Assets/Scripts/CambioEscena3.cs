@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CambioEscena : MonoBehaviour
+public class CambioEscena3 : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("JuegoScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("FinScene", LoadSceneMode.Single);
         }
     }
 }

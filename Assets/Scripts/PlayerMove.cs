@@ -12,6 +12,11 @@ public class PlayerMove : MonoBehaviour
     bool arrancar;
     int salida;
 
+    public GameObject TextoFlotanteMalaSalida;
+    public GameObject TextoFlotanteSalidaPerfecta;
+    public GameObject TextoFlotanteBuenaSalida;
+
+
     void Start()
     {
         arrancar = false;
@@ -45,16 +50,28 @@ public class PlayerMove : MonoBehaviour
         {
             rb2D.velocity = new Vector2(300f, rb2D.velocity.y);
             needle.eulerAngles = new Vector3(0, 0, valor);
+            if (TextoFlotanteMalaSalida)
+            {
+                MostrarTextoMalaSalida();
+            }
         }
         else if (salida == 1)
         {
             rb2D.velocity = new Vector2(600f, rb2D.velocity.y);
             needle.eulerAngles = new Vector3(0, 0, valor);
+            if (TextoFlotanteBuenaSalida)
+            {
+                MostrarTextoBuenaSalida();
+            }
         }
         else if (salida == 2)
         {
             rb2D.velocity = new Vector2(999f, rb2D.velocity.y);
             needle.eulerAngles = new Vector3(0, 0, valor);
+            if (TextoFlotanteSalidaPerfecta)
+            {
+                MostrarTexoSalidaPerfecta();
+            }
         }
     }
 
@@ -76,5 +93,23 @@ public class PlayerMove : MonoBehaviour
                 salida = 2;
             }
         }
+    }
+
+    public void MostrarTextoMalaSalida() 
+    {
+        GameObject textoMalaSalida = Instantiate(TextoFlotanteMalaSalida);
+        textoMalaSalida.transform.position = new Vector3(1357, 385, -3);
+    }
+
+    public void MostrarTexoSalidaPerfecta()
+    {
+        GameObject textoSalidaPerfecta = Instantiate(TextoFlotanteSalidaPerfecta);
+        textoSalidaPerfecta.transform.position = new Vector3(1357, 385, -3);
+    }
+
+    public void MostrarTextoBuenaSalida()
+    {
+        GameObject textoBuenaSalida = Instantiate(TextoFlotanteBuenaSalida);
+        textoBuenaSalida.transform.position = new Vector3(1357, 385, -3);
     }
 }

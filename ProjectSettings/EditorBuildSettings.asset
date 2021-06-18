@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MetaScene.unity
     guid: f341ff9d4fcfbfe4b81837fce9f90257
   - enabled: 1
+    path: Assets/Scenes/MetaScene2.unity
+    guid: 5b3f758250def474ab0cee21bf3a23f2
+  - enabled: 1
     path: Assets/Scenes/FinScene.unity
-    guid: f57f4835f9c18ee40866f5b4e52d4b11
+    guid: e1b30328d1336a747b40cbd608ff66ac
+  - enabled: 1
+    path: Assets/Scenes/FinScene2.unity
+    guid: 427f04e3c16fdbb4b8897cc71c145ba0
   m_configObjects: {}

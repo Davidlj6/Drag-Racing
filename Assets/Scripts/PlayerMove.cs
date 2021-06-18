@@ -12,6 +12,8 @@ public class PlayerMove : MonoBehaviour
     bool arrancar;
     int salida;
 
+    public ControladorEstado estado;
+
     public GameObject TextoFlotanteMalaSalida;
     public GameObject TextoFlotanteSalidaPerfecta;
     public GameObject TextoFlotanteBuenaSalida;
@@ -48,6 +50,7 @@ public class PlayerMove : MonoBehaviour
         float valor = marcador.GetSpeedRotation();
         if (salida == 0)
         {
+            estado.setEstado(1);
             rb2D.velocity = new Vector2(300f, rb2D.velocity.y);
             needle.eulerAngles = new Vector3(0, 0, valor);
             if (TextoFlotanteMalaSalida)
@@ -55,8 +58,9 @@ public class PlayerMove : MonoBehaviour
                 MostrarTextoMalaSalida();
             }
         }
-        else if (salida == 1)
+        if (salida == 1)
         {
+            estado.setEstado(2);
             rb2D.velocity = new Vector2(600f, rb2D.velocity.y);
             needle.eulerAngles = new Vector3(0, 0, valor);
             if (TextoFlotanteBuenaSalida)
@@ -64,8 +68,9 @@ public class PlayerMove : MonoBehaviour
                 MostrarTextoBuenaSalida();
             }
         }
-        else if (salida == 2)
+        if (salida == 2)
         {
+            estado.setEstado(3);
             rb2D.velocity = new Vector2(999f, rb2D.velocity.y);
             needle.eulerAngles = new Vector3(0, 0, valor);
             if (TextoFlotanteSalidaPerfecta)
@@ -77,7 +82,6 @@ public class PlayerMove : MonoBehaviour
 
     void calentar()
     {
-        Debug.Log(marcador.GetSpeedRotation());
         if (Input.GetKey(KeyCode.Mouse0))
         {
             if (marcador.GetSpeedRotation() > 50)

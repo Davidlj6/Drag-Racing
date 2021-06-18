@@ -22,4 +22,8 @@ public class Transiciones : MonoBehaviour
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(scene);
     }
+
+    public void Exit() {
+        Application.Quit();
+    }
 }   

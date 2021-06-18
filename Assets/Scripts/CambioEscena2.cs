@@ -12,5 +12,10 @@ public class CambioEscena2 : MonoBehaviour
             SceneManager.LoadScene("MetaScene", LoadSceneMode.Single);
 
         }
+        if (other.gameObject.tag == "Player2")
+        {
+            SceneManager.LoadScene("MetaScene2", LoadSceneMode.Single);
+
+        }
     }
 }

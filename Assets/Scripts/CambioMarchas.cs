@@ -47,14 +47,12 @@ public class CambioMarchas : MonoBehaviour
     {
         //Acelera
         speed += 20f * Time.deltaTime;
-        Debug.Log(marchas);
         if (marchas == 1 && Input.GetMouseButtonDown(0))
         {
             marcha.text = "2";
             UIImagen.sprite = Resources.Load<Sprite>("Sprites/marcador1");
             speed -= 17f * Time.deltaTime * 999;
             marchas = 2;
-            Debug.Log(marchas);
         }
         else if (marchas == 2)
         {
@@ -88,53 +86,49 @@ public class CambioMarchas : MonoBehaviour
 
     IEnumerator Marcha2()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         if (marchas == 2 && Input.GetMouseButtonDown(0))
         {
             marcha.text = "3";
             UIImagen.sprite = Resources.Load<Sprite>("Sprites/marcador3");
             speed -= 17f * Time.deltaTime * 999;
             marchas = 3;
-            Debug.Log(marchas);
         }
     }
 
     IEnumerator Marcha3()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         if (marchas == 3 && Input.GetMouseButtonDown(0))
         {
             marcha.text = "4";
             UIImagen.sprite = Resources.Load<Sprite>("Sprites/marcador4");
             speed -= 17f * Time.deltaTime * 999;
             marchas = 4;
-            Debug.Log(marchas);
         }
     }
 
     IEnumerator Marcha4()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         if (marchas == 4 && Input.GetMouseButtonDown(0))
         {
             marcha.text = "5";
             UIImagen.sprite = Resources.Load<Sprite>("Sprites/marcador5");
             speed -= 17f * Time.deltaTime * 999;
             marchas = 5;
-            Debug.Log(marchas);
         }
     }
 
     IEnumerator Marcha5()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         if (marchas == 5 && Input.GetMouseButtonDown(0))
         {
             marcha.text = "6";
             UIImagen.sprite = Resources.Load<Sprite>("Sprites/marcador6");
             speed -= 17f * Time.deltaTime * 999;
             marchas = 6;
-            Debug.Log(marchas);
         }
     }
 

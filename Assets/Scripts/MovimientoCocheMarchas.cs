@@ -10,7 +10,7 @@ public class MovimientoCocheMarchas : MonoBehaviour
     public CambioMarchas marchas;
     private const float ZERO_SPEED_ANGLE = 170;
     private const float MAX_SPEED_ANGLE = 37;
-    int marcador = 1;
+    int marcador = 0;
 
     public GameObject TextoFlotanteMalCambio;
     public GameObject TextoFlotanteCambioPerfecto;
@@ -20,13 +20,13 @@ public class MovimientoCocheMarchas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        marcador = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
         Movimiento();
-        Debug.Log(marchas.GetSpeedRotation());
     }
 
     void Movimiento()
@@ -36,7 +36,7 @@ public class MovimientoCocheMarchas : MonoBehaviour
         {
             rb2D = GetComponent<Rigidbody2D>();
             //Adelantado
-            if (marchas.GetSpeedRotation() > 58)
+            if (marchas.GetSpeedRotation() > 50)
             {
                 rb2D.velocity = new Vector2(20f, rb2D.velocity.y);
                 if (TextoFlotanteMalCambio)
@@ -45,7 +45,7 @@ public class MovimientoCocheMarchas : MonoBehaviour
                 }
             }
             //Perfecta
-            else if (marchas.GetSpeedRotation() <= 58 || marchas.GetSpeedRotation() >= 45)
+            else if (marchas.GetSpeedRotation() <= 58 || marchas.GetSpeedRotation() >= 43)
             {
                 rb2D.velocity = new Vector2(64f, rb2D.velocity.y);
                 if (TextoFlotanteCambioPerfecto)
@@ -54,7 +54,7 @@ public class MovimientoCocheMarchas : MonoBehaviour
                 }
             }
             //Atrasado
-            else if (marchas.GetSpeedRotation() < 45)
+            else if (marchas.GetSpeedRotation() < 43)
             {
                 rb2D.velocity = new Vector2(43f, rb2D.velocity.y);
                 if (TextoFlotanteBuenCambio)

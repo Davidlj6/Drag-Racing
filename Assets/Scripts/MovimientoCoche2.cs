@@ -9,6 +9,7 @@ public class MovimientoCoche2 : MonoBehaviour {
     public ControladorEstado ControladorEstado;
 
     int estadoC2 = 0;
+    int contador = 0;
 
     void Start()
     {
@@ -28,21 +29,34 @@ public class MovimientoCoche2 : MonoBehaviour {
         {
             estadoC2 = 3;
         }
+        
     }
+
 
     void Update() 
     {
+        if (contador == 0)
+        {
+            estadoCoche2();
+            contador = 1;
+        }
+
+        rb2D.velocity = new Vector2(45f, rb2D.velocity.y);
+    }
+
+
+    public void estadoCoche2() {
         if (estadoC2 == 1)
         {
-            rb2D.velocity = new Vector2(80f, rb2D.velocity.y);
+            rb2D.transform.position = new Vector3(1100, 748, -10);
         }
         if (estadoC2 == 2)
         {
-            rb2D.velocity = new Vector2(40f, rb2D.velocity.y);
+            rb2D.transform.position = new Vector3(447, 748, -10);
         }
         if (estadoC2 == 3)
         {
-            rb2D.velocity = new Vector2(30f, rb2D.velocity.y);
+            rb2D.transform.position = new Vector3(7, 748, -10);
         }
     }
 }
